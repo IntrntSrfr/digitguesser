@@ -1,0 +1,12 @@
+version: '1'
+services:
+    api:
+        build:
+            context: ./api
+        ports:
+            - "5000:8080"
+    web:
+        build:
+            context: ./web
+        ports:
+            - "3000:3000"
