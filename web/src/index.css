@@ -2,9 +2,9 @@ body{
     margin: 0;
 }
 
-.field{
-    height: 2rem;
-    width: 2rem;
+.cell{
+    height: 1.5rem;
+    width: 1.5rem;
     display: inline-block;
 }
 .row{

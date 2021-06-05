@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Display from "./Display"
 
 function App() {
     const [inp, setInp] = useState([])
@@ -31,11 +32,13 @@ function App() {
 
             <button onClick={weed}>lol</button>
 
-            {guesses.map(g => (
-                <div className="guess">{g}</div>
-            ))}
+            <div className={"guesses"}>
+                {guesses.map((g, i) => (
+                    <div key={i} className="guess">{i} - {Math.round(g*100)}%</div>
+                ))}
+            </div>
 
-
+            <Display values={inp}/>
         </div>
     );
 }

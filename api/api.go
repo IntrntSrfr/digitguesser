@@ -1,7 +1,10 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 
@@ -27,6 +30,13 @@ func CORSMiddleware() gin.HandlerFunc {
 func main() {
 
 	net := jarvis.NewNetwork(784, 512, 10, 0.01)
+
+	d, err := os.ReadFile("./weights/network.wgt")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	json.Unmarshal(d, net)
 
 	router := gin.Default()
 
