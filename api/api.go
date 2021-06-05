@@ -1,12 +1,11 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 
-	"github.com/go-chi/chi"
+	"github.com/gin-gonic/gin"
+
 	"github.com/intrntsrfr/jarvis"
 )
 
@@ -14,13 +13,24 @@ func main() {
 
 	net := jarvis.NewNetwork(784, 512, 10, 0.01)
 
-	router := chi.NewRouter()
-	router.Get("/api/guess", func(w http.ResponseWriter, r *http.Request) {
-		reqBody, _ := io.ReadAll(r.Body)
-		lol := []float64{}
-		json.Unmarshal(reqBody, &lol)
+	router := gin.Default()
+
+	api := router.Group("/api")
+
+	api.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"status": "OK"})
+	})
+
+	api.GET("/guess", func(c *gin.Context) {
+
+		var lol []float64
+		if err := c.ShouldBindJSON(&lol); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+
 		if len(lol) != 784 {
-			json.NewEncoder(w).Encode([]float64{})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "array must have a length of 784"})
 			return
 		}
 
@@ -33,7 +43,8 @@ func main() {
 		guess := net.Guess(x)
 
 		fmt.Println(guess)
+		c.JSON(http.StatusOK, gin.H{"guess": guess})
 	})
 
-	http.ListenAndServe(":8080", router)
+	router.Run(":8080")
 }
