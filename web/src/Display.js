@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Cell from './Cell'
 
@@ -8,7 +8,9 @@ const Display = (props) => {
     const {values} = props
 
     const [rows, setRows] = useState([])
-    
+    const canvasRef = useRef(null)
+
+    /* 
     useEffect(() => {
 
         let newRows = []
@@ -22,9 +24,40 @@ const Display = (props) => {
         }
         setRows(newRows)
     }, [values])
+     */
+
+    useEffect(()=>{
+
+        // RGBA ORDER, 0-255 inclusive
+        
+        if(!canvasRef){return}
+
+        const canvas = canvasRef.current
+        const ctx = canvas.getContext('2d')
+
+        const img = ctx.createImageData(28, 28)
+
+        console.log(img);
+        
+        //console.log(ctx);
+        
+
+    }, [])
     
     return(
         <div className={"lol"}>
+
+            <canvas ref={canvasRef}>
+
+            </canvas>
+
+        </div>
+    )
+}
+
+export default Display
+
+/* 
 
             {rows.map(row => (
                 <div className={"row"}>
@@ -33,18 +66,5 @@ const Display = (props) => {
                     ))}
                 </div>
             ))}
-        </div>
-    )
-}
 
-export default Display
-
-
-/*
- {props.values.map(l => (
-                <div>
-                    {l}
-                </div>
-            
-            ))} 
-            */
+*/
