@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Digitguesser</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js" integrity="sha512-yocoLferfPbcwpCMr8v/B0AB4SWpJlouBwgE0D3ZHaiP1nuu5djZclFEIj9znuqghaZ3tdCMRrreLoM8km+jIQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"
+        integrity="sha512-yocoLferfPbcwpCMr8v/B0AB4SWpJlouBwgE0D3ZHaiP1nuu5djZclFEIj9znuqghaZ3tdCMRrreLoM8km+jIQ=="
+        crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </head>
+
 <body>
     <h1>Digitguesser!</h1>
     <main class="drawing">
-        <div>
+        <div class="inner">
             <canvas id="canvas" height="128" width="128"></canvas>
             <div class="btn-grp">
                 <button class="btn" id="clearBtn">Clear</button>
             </div>
         </div>
-        <h2>Predictions</h2>
-        <div id="predictions">
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">0</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">1</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">2</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">3</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">4</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">5</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">6</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">7</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">8</div>
-            </div>
-            <div class="pred_col">
-                <div class="bar"></div>
-                <div class="num">9</div>
+        <div class="predictions">
+            <h2>Predictions</h2>
+            <div id="prediction-bars">
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">0</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">1</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">2</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">3</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">4</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">5</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">6</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">7</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">8</div>
+                </div>
+                <div class="pred_col">
+                    <div class="bar"></div>
+                    <div class="num">9</div>
+                </div>
             </div>
         </div>
     </main>
 </body>
+
 </html>

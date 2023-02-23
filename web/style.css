@@ -58,32 +58,40 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 3em 0;
+    margin: 1.5em 0 0 0;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 1rem 0;
+    font-size: 2rem;
+    margin: 0.25rem 0;
 }
 
 h2 {
-    font-size: 2rem;
-    margin: 1rem 0;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
 }
 
 .drawing {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5em;
     margin-top: 2em;
 }
 
+.inner {
+    max-width: max-content;
+    text-align: center;
+}
+
 canvas {
+    touch-action: none;
     background-color: white;
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     filter: invert();
 }
+
 
 .btn-grp {
     display: flex;
@@ -107,18 +115,19 @@ canvas {
     background-color: rgba(255, 38, 30, 0.199);
 }
 
-#predictions {
-    display: grid;
+#prediction-bars {
     height: 150px;
+    display: grid;
     grid-template-columns: repeat(10, 1fr);
     justify-items: center;
     align-items: end;
+    gap: 0.25em;
 }
 
 .pred_col {
     display: flex;
     flex-direction: column;
-    font-size: 2em;
+    font-size: 1.5em;
     width: 25px;
     height: 100%;
     text-align: center;
@@ -135,4 +144,32 @@ canvas {
 
 .num {
     margin-top: .5em;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        margin: 3em 0 0 0;
+    }
+    h1 {
+        font-size: 2.5rem;
+        margin: 1rem 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    .drawing {
+        margin-top: 2em;
+    }
+
+    canvas {
+        height: 300px;
+        width: 300px;
+    }
+
+    .pred_col {
+        font-size: 2em;
+    }
 }
