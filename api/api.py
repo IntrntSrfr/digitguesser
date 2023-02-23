@@ -17,7 +17,10 @@ tfs = transforms.Compose([
 ])
 
 model = MnistModel()
-model.load_state_dict(torch.load('./models/mnist.pt'))
+if torch.cuda.is_available():
+    model.load_state_dict(torch.load('./models/mnist.pt'))
+else:
+    model.load_state_dict(torch.load('./models/mnist.pt', map_location=torch.device('cpu')))
 model.eval()
 
 app = Flask(__name__)
