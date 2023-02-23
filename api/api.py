@@ -26,7 +26,7 @@ model.eval()
 app = Flask(__name__)
 CORS(app)
 
-@app.post('/predict')
+@app.post('/api/predict')
 def predict():
     f = request.files.get('image')
     if not f:
